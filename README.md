@@ -9,8 +9,6 @@ Themes and labels coming soon.
 
 This is an alpha version. Please don't use it in production.
 
-Sample inclusion in a project.
-
 
 [![NPM](https://img.shields.io/npm/v/react-responsive-input.svg)](https://www.npmjs.com/package/react-responsive-input) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
@@ -34,6 +32,10 @@ const TestPage = styled.div`
     justify-content:center;
     align-items:center;
 `
+const ParentStyle = styled.div`
+    height:35px;
+    width:450px;
+`
 
 class Test extends Component {
 
@@ -42,13 +44,7 @@ class Test extends Component {
         isFocused:false,
         isError:false
     }
-
-    state = {
-        value:'',
-        isFocused:false,
-        isError:false
-    }
-
+    
     componentDidMount(){
 
     }
@@ -79,26 +75,30 @@ class Test extends Component {
 
         return (
             <TestPage>
-                <InputComponent 
-                    value={value}
-                    onChange={this.handleChangeUser}
+                <ParentStyle>
+                    <InputComponent 
+                        value={value}
+                        onChange={this.handleChangeUser}
 
-                    isFocused={isFocused}
-                    onBlur={this.handleInputBlur}
-                    onFocus={this.handleInputFocus}
+                        fontSize={'1em'}
+                        maxLength={60}
+                        height={'parent'} // takes parent's height
+                        width={'parent'} // takes parent's width
+                        // height={45}
+                        // width={500}
 
-                    isFocusedByDefault={true}
+                        isFocused={isFocused}
+                        onBlur={this.handleInputBlur}
+                        onFocus={this.handleInputFocus}
 
-                    isError={isError}
+                        isFocusedByDefault={false}
 
-                    inputRef={this.getInputRef}
+                        isError={isError}
 
-                    fontSize={'1.1em'}
-                    maxLength={10}
-                    height={45}
-                    width={300}
+                        inputRef={this.getInputRef}
 
-                />
+                    />
+                </ParentStyle>
             </TestPage>
         )
     }
@@ -107,6 +107,43 @@ class Test extends Component {
 export default Test
 
 ```
+
+## Props Overview
+
+```jsx
+Input.propTypes = {
+
+    value:PropTypes.string,
+    isFocused:PropTypes.bool,
+    isError:PropTypes.bool,
+    isFocusedByDefault:PropTypes.bool,
+
+    height:PropTypes.node,
+    width:PropTypes.node,
+    maxLength:PropTypes.number,
+    fontSize:PropTypes.string,
+
+    onChange:PropTypes.func,
+    onBlur:PropTypes.func,
+    onFocus:PropTypes.func,
+    inputRef:PropTypes.func,
+
+}
+
+```
+
+## Props Configuration
+
+* If you pass no props, the default props take over.
+  The input component maintains default state to store your input.
+
+* The event handler functions you pass as props are passed the synthetic event object of React as parameter.
+
+* The width and height can be set to a positive integer (treated in pixels). 
+  However, for a responsive behavior, just set the height and width to 'parent'. 
+  This will set the height and width of the input to 100% of the container's dimensions which wraps the input component.
+  From there on, just control the parent's dimensions to control the input component's dimensions.
+
 
 ## License
 
