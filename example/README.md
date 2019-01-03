@@ -9,6 +9,8 @@ Themes and labels coming soon.
 
 This is an alpha version. Please don't use it in production.
 
+Demo at - http://quizzical-baby.surge.sh/
+
 
 [![NPM](https://img.shields.io/npm/v/react-responsive-input.svg)](https://www.npmjs.com/package/react-responsive-input) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
@@ -148,3 +150,6 @@ Input.propTypes = {
 ## License
 
 MIT © [gulshanzealous](https://github.com/gulshanzealous)
+
+
+    <!-- "react-responsive-input": "file:..", -->

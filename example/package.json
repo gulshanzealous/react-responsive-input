@@ -8,7 +8,7 @@
     "prop-types": "^15.6.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
-    "react-responsive-input": "file:..",
+    "react-responsive-input": "0.0.11",
     "react-scripts": "^1.1.4",
     "styled-components": "^4.1.3"
   },
